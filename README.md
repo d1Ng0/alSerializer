@@ -1,6 +1,8 @@
 # alSerializer
 Personal data serializer.
 
+![](data/serialization.gif)
+
 The brief for this challenge is as follows:
 
 
