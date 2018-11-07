@@ -1,2 +1,2 @@
 # dataSerializer
-Personal data serializer
+Personal data serializer.
