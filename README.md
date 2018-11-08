@@ -7,12 +7,16 @@ A command line tool which shows how you would take some sets of personal data (n
 
 Write it in such a way that it would be easy for a developer:
 
-* *Add support for additional storage formats:* To reinforce and facilitate adding new formats in future we can use class interfaces. Interfaces establish a contract (a promise) of which method will be used but all existing or future implementations.
+* *Add support for additional storage formats:* To reinforce and facilitate adding new formats in future we can use class interfaces. Interfaces establish a contract (a promise) of which method will be used but all existing or future implementations.<br/>
+ ![](data/classes.png)
 * *Query a list of currently supported formats*: added cmd line argument to retrieve list of all available formats
 * *Provide reasonable Unit Test coverage:* although there would be many more tests and ways to crash this CLI, a basic unit-test has been implemented in **alSerializer_test.py**. This is how can be run:
 ```
 python -m unittest alSerializer_test.py
 ```
+
+![](data/unit_test.gif)
+
 The CLI can be run with the following options
 
 ```
@@ -28,8 +32,6 @@ optional arguments:
 
 For support or feedback email diegotrazzi@gmail.com
 ```
+![](data/cmdLine.gif)
 
 NOTE: This version of the serializer has been developed on MacOS/Unix and although the code was written leveraging on path manipulation libraries to be cross-platform, it has not been tested on other platforms.
-
-
-
