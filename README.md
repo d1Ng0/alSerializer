@@ -1,5 +1,8 @@
 # alSerializer
-Personal data serializer.
+#### UPDATE 01: Added support HDF5 file format.
+#### UPDATE 02: Working on a django web server and SQL database to provide a user-friendly visualization, rather than cmd line stdout. Work in progress.
+---
+## Personal data serializer
 
 ![](data/serialization.gif)
 
