@@ -9,21 +9,35 @@ import alUtils
 
 parser = argparse.ArgumentParser(description='User Serializer.', epilog='For support or feedback email diegotrazzi@gmail.com')
 parser.add_argument('--testDataSize', '-t', type=int, default=5, required=False, help='Test the serializer with random users. Specify the batch size, default 50')
-parser.add_argument('--filePath', '-f', type=str, default='data/pickle.dat', required=False, help='File path to save the file. Default "data/pickle.dat"')
+parser.add_argument('--filePath', '-p', type=str, default='data/data', required=False, help='Path to save the file (without extension). Default "data/data"')
+parser.add_argument('--format', '-f', choices=['pk', 'hd5'], default='pk', required=True, help='pk: pickle file format or hd5')
 args = parser.parse_args()
 
-# instance the serializer and utils
-app = alSerializer.Serializer()
-utils = alUtils.Utilities()
+# Instance the serializer type and utils
+suffix = args.format
+if suffix == 'pk': #pickle ff
+    app = alSerializer.PickleSerializer()
+elif suffix == 'hd5': # hdf5
+    app = alSerializer.Hdf5Serializer()
+
+
 # generate some user test data
 testSize = args.testDataSize
+utils = alUtils.Utilities()
 users = utils.generateTestData(testSize)
 for user in users:
     print("Generating user ->\t{}".format(user))
-# serialize data into a pickle file
+
+# add extension to file 
 fName = args.filePath
+fName = fName + '.' + suffix
+
+# serialize data into a file
 app.toFile(users, fName)
+
 # read the data back and spit it out
 data = app.fromFile(fName)
+
+# for user in data:
 for user in data:
     print("Reading from file ->\t{}".format(user))

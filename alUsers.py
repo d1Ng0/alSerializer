@@ -16,19 +16,19 @@ class User:
         self.phone = phone        
         # create an address instance
         self.address = Address()
-        self.address.address_from_string(address)
+        self.address = self.address.address_from_string(address)
 
     def get_name(self):
-        return self.name
+        return str(self.name)
 
     def get_surname(self):
-        return self.surname
+        return str(self.surname)
 
     def get_phone(self):
-        return self.phone
+        return str(self.phone)
 
     def get_address(self):
-        return self.address
+        return str(self.address)
 
     def __str__(self):
         """
@@ -59,9 +59,9 @@ class Address:
             self.city = s[0]
             self.state = s[1]
             self.zipcode = s[2]
-            return True
+            return self
         else:
-            return False
+            return None
 
     def get_street(self):
         return self.street
@@ -77,7 +77,7 @@ class Address:
 
     def set_street(self, street):
         """
-        TODO: ADD CHECKERS FOR ALL SETTERS
+        @TODO: ADD CHECKERS FOR ALL SETTERS
         """
         self.street = street
         return self.street
