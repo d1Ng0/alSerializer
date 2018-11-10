@@ -62,9 +62,8 @@ class PickleSerializer(AbstractSerializer):
 class Hdf5Serializer(AbstractSerializer):
     """
     Class to serialize and deserialize users with hdf5
-    In this implementation I use one group per user. Each group contains a dataset [name, surname, number] 
+    In this implementation I use one table for all users. Each group contains a dataset [name, surname, number] 
     and a nested group for the address class.
-
     """
 
     def __init__(self):
