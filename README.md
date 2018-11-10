@@ -3,7 +3,7 @@ Personal data serializer.
 
 ![](data/serialization.gif)
 
-A command line tool which shows how you would take some sets of personal data (name, address, phone number) and serialize them/deserialize them in at least 2 formats, and display it in at least 2 different ways (no need to use a GUI Framework - text output/HTML or any other human readable format is  fine).  There is no need to support manual data entry - you could manually write a file in one of your chosen formats to give you your input test data.
+A command line tool which takes some sets of personal data (name, address, phone number) and serialize them/deserialize them in at least 2 formats (pickle and hd5), and display it in at least 2 different ways (no need to use a GUI Framework - text output/HTML or any other human readable format is  fine).  There is no need to support manual data entry - you could manually write a file in one of your chosen formats to give you your input test data.
 
 Write it in such a way that it would be easy for a developer:
 
@@ -20,7 +20,8 @@ python -m unittest alSerializer_test.py
 The CLI can be run with the following options
 
 ```
-usage: main.py [-h] [--testDataSize TESTDATASIZE]
+sage: alSerCmd.py [-h] [--testDataSize TESTDATASIZE] [--filePath FILEPATH]
+                   --format {pk,hd5}
 
 User Serializer.
 
@@ -29,9 +30,19 @@ optional arguments:
   --testDataSize TESTDATASIZE, -t TESTDATASIZE
                         Test the serializer with random users. Specify the
                         batch size, default 50
+  --filePath FILEPATH, -p FILEPATH
+                        Path to save the file (without extension). Default
+                        "data/data"
+  --format {pk,hd5}, -f {pk,hd5}
+                        pk: pickle file format or hd5
 
 For support or feedback email diegotrazzi@gmail.com
 ```
 ![](data/cmdLine.gif)
 
 NOTE: This version of the serializer has been developed on MacOS/Unix and although the code was written leveraging on path manipulation libraries to be cross-platform, it has not been tested on other platforms.
+
+UML Class graph generated with pyreverse:
+```
+pyreverse alSerializer -A -a 3 -s 3 -o png -m y
+```
