@@ -11,6 +11,7 @@ parser = argparse.ArgumentParser(description='User Serializer.', epilog='For sup
 parser.add_argument('--testDataSize', '-t', type=int, default=5, required=False, help='Test the serializer with random users. Specify the batch size, default 50')
 parser.add_argument('--filePath', '-p', type=str, default='data/data', required=False, help='Path to save the file (without extension). Default "data/data"')
 parser.add_argument('--format', '-f', choices=['pk', 'hd5'], default='pk', required=True, help='pk: pickle file format or hd5')
+parser.add_argument('--webPublish', '-w', type=bool, default=True, help='If True, publishes the tables onto a django web-host. It requires django to be running to visualize the results')
 args = parser.parse_args()
 
 # Instance the serializer type and utils
@@ -19,7 +20,6 @@ if suffix == 'pk': #pickle ff
     app = alSerializer.PickleSerializer()
 elif suffix == 'hd5': # hdf5
     app = alSerializer.Hdf5Serializer()
-
 
 # generate some user test data
 testSize = args.testDataSize

@@ -5,8 +5,11 @@ import alUtils
 class TestStringMethods(unittest.TestCase):
 
     def test_one(self):
+        """
+        Pickle serializer test
+        """
         # instance the serializer and the utils
-        app = alSerializer.Serializer()
+        app = alSerializer.PickleSerializer()
         utils = alUtils.Utilities()
         # generate some user test data
         testSize = 1000

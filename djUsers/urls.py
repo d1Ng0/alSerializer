@@ -1,13 +1,12 @@
 from django.urls import path
 
 # from .views import HomePageView, AboutPageView
-from .views import *
+from .views import AboutPageView, homePageView
 from django.conf.urls import url, include
 
 
 urlpatterns = [
-    # path('about/', AboutPageView.as_view(), name='about'),
-    # path('', HomePageView.as_view(), name='home'),
-    url(r'^test/', test, name='test')
+    path('about/', AboutPageView.as_view(), name='about'),
+    url('', homePageView, name='home')
 ]
 

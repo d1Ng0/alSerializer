@@ -1,7 +1,14 @@
 {% extends 'base.html' %}
-
-<h1>Homepage</h1>
-{% block content %}
-<p>{{content}}</p>
-<p>TESTTTTT</p>
-{% endblock content %}
+<!-- <html> -->
+    <!-- <head> -->
+        <!-- </head> -->
+        <!-- <body> -->
+            <meta http-equiv="refresh" content="5">
+            {% block content %}
+            <h1>Results</h1>
+            {% for model in content %}
+            <p>{{model}}</p>
+            {% endfor %}
+            {% endblock %}
+        <!-- </body> -->
+<!-- </html> -->
