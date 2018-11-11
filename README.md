@@ -23,7 +23,7 @@ python -m unittest alSerializer_test.py
 The CLI can be run with the following options
 
 ```
-sage: alSerCmd.py [-h] [--testDataSize TESTDATASIZE] [--filePath FILEPATH]
+Usage: alSerCmd.py [-h] [--testDataSize TESTDATASIZE] [--filePath FILEPATH]
                    --format {pk,hd5}
 
 User Serializer.

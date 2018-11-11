@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Al Django User Serializer</h1>
+<div>
+    <div>Source code and details avaialble on my github account:&nbsp;<a href="https://github.com/d1Ng0/alSerializer">https://github.com/d1Ng0/alSerializer</a></div>
+    <div>This is the front-end for the command line which takes some sets of personal data (name, address, phone number) and serialize them/deserialize them in at least 2 formats (pickle and hd5), and display it in at least 2 different ways (no need to use a GUI Framework - text output/HTML or any other human readable format is fine). There is no need to support manual data entry - you could manually write a file in one of your chosen formats to give you your input test data.</div>
+    <div>&nbsp;The tool is provided with unit-test and cmd line tool:&nbsp;</div>
+    <div>
+        <div>
+            <blockquote>
+                <div>Usage: alSerCmd.py [-h] [--testDataSize TESTDATASIZE] [--filePath FILEPATH]</div>
+                <div>--format {pk,hd5}</div>
+                <div>User Serializer. Optional arguments:</div>
+                <div>-h, --help show this help message and exit</div>
+                <div>--testDataSize TESTDATASIZE, -t TESTDATASIZE Test the serializer with random users. Specify the batch size, default 50</div>
+                <div>--filePath FILEPATH, -p FILEPATH Path to save the file (without extension). Default "data/data"</div>
+                <div>--format {pk,hd5}, -f {pk,hd5} pk: pickle file format or hd5</div>
+                <div>For support or feedback email diegotrazzi@gmail.com</div>
+            </blockquote>
+        </div>
+    </div>
+</div>
+{% endblock %}
