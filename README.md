@@ -49,3 +49,17 @@ UML Class graph generated with pyreverse:
 ```
 pyreverse alSerializer -A -a 3 -s 3 -o png -m y
 ```
+
+DEBUGGING NOTES: 
+To flush all tables in SQL Django db: 
+```
+/usr/local/anaconda3/envs/alSerializer/bin/python manage.py flush
+```
+To generate the proper tables in SQL we use django, which might require to migrate the models into sql for an initial setup of the tables. 
+After modifying the models migrate the changes using: 
+```
+python manage.py makemigrations
+```
+```
+python manage.py migrate
+```

@@ -7,7 +7,11 @@ import sys
 import alUsers
 from abc import ABC, abstractmethod
 import pandas as pd
-from djUsers import models # defines the django model to generate users on the sql server
+
+import django
+django.setup()
+from djUsers import models  # defines the django model to generate users on the sql server
+
 
 class AbstractSerializer(ABC):
     """
@@ -76,7 +80,7 @@ class Hdf5Serializer(AbstractSerializer):
             path = os.path.split(fName)[0]
             if not os.path.exists(path):
                 os.makedirs(path)
-           # dump data into pickle
+           # dump data into pandas
             df = pd.DataFrame()
             columns = ['name', 'surname', 'phone','address']
             for index, user in enumerate(data):
@@ -123,33 +127,17 @@ class djSerializer(AbstractSerializer):
         return
 
     def toFile(self, data, fName):
-        print('TO FILE STARTS HERE')
-        """
         try: 
-            # check if file path exists, if not attempt to create
-            path = os.path.split(fName)[0]
-            if not os.path.exists(path):
-                os.makedirs(path)
-           # dump data into pickle
-            df = pd.DataFrame()
-            columns = ['name', 'surname', 'phone','address']
             for index, user in enumerate(data):
                 name = user.get_name()
                 surname = user.get_surname()
                 phone = user.get_phone()
                 address = user.get_address()
-                df_entry = pd.DataFrame([[name,surname,phone,address]], index=[index], columns=columns)
-                df = df.append(df_entry)
-            # write to file
-            hdf = pd.HDFStore(fName, mode='w')
-            hdf.put('USERS', df, data_columns=True)
-            hdf.close()
-            return True
+                new_user = models.UserModel.objects.get_or_create(name=name, surname=surname, phone=phone, address=address)  # pylint: disable=no-member
         except:
             raise  
-        """
 
-    def fromFile(self, fName):
+    def fromFile(self):
         print('from file')
         """
         try:
